@@ -1,1 +1,16 @@
-<p>content works!</p>
+<div class="container">
+    <div class="card" *ngFor="let trip of trips">
+        <div class="img-container">
+            <img [src]="trip.imgPath" [alt]="trip.name">
+        </div>
+        <div class="data-container">
+            <p>{{ trip.name }}</p>
+            <hr>
+            <p>Cena za osobę: {{ trip.price }} zł</p>
+            <p>{{ trip.dateFrom }} - {{ trip.dateTo }}</p>
+        </div>
+        <div class="btn-container">
+            <button mat-raised-button color="basic" (click)="addToCart(trip)">Wybierz</button>
+        </div>
+    </div>
+</div>

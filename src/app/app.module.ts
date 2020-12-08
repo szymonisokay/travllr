@@ -14,6 +14,8 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
 import { FiltersComponent } from './offers/filters/filters.component';
 import { ContentComponent } from './offers/content/content.component';
+import { MatButtonModule } from '@angular/material/button';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { ContentComponent } from './offers/content/content.component';
     AccountComponent,
     LoginComponent,
     FiltersComponent,
-    ContentComponent
+    ContentComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
