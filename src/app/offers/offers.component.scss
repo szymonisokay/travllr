@@ -1,0 +1,15 @@
+.container {
+    width: 95%;
+    height: 85vh;
+    display: flex;
+
+    .left-content {
+        width: 25%;
+        height: 100%;
+    }
+
+    .right-content {
+        width: 75%;
+        height: 100%;
+    }
+}
