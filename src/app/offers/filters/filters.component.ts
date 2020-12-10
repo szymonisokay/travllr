@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterDataService } from 'src/app/service/filter-data.service';
 
 @Component({
   selector: 'app-filters',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  priceFrom: number = 2200;
+  priceTo: number = 11500;
+  dateFrom: string = '';
+  dateTo: string = '';
+
+  constructor(private filterService: FilterDataService) { }
 
   ngOnInit(): void {
+  }
+
+  filter(filterData: any) {
+    this.filterService.passFilterhInfo(filterData.value);
   }
 
 }

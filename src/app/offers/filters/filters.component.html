@@ -1,12 +1,25 @@
 <div class="container">
-    <form>
-        <input type="text" placeholder="wyszukaj...">
-        <button type="submit">Wyszukaj</button>
+    <h2>Zastosuj filtry</h2>
+    <form (ngSubmit)="filter(filterData)" #filterData="ngForm">
+
+        <div>
+            <p>Cena</p>
+            <input type="number" placeholder="od" name="priceFrom" [(ngModel)]="priceFrom">
+            <span class="dash"> - </span>
+            <input type="number" placeholder="do" name="priceTo" [(ngModel)]="priceTo">
+        </div>
+
+        <div>
+            <p>Data</p>
+            <input type="date" placeholder="od">
+            <span class="dash"> - </span>
+            <input type="date" placeholder="do">
+        </div>
+
+
+        <div>
+            <button mat-raised-button color="warn">Filtruj</button>
+        </div>
     </form>
-    <form>
-        <h4>Cena:</h4>
-        <input type="text" placeholder="od">
-        <span> - </span>
-        <input type="text" placeholder="do">
-    </form>
+
 </div>

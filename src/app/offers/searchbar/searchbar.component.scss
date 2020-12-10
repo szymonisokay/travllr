@@ -1,0 +1,32 @@
+@import '../../shared/shared-styles';
+
+    .searchbar {
+        width: 100%;
+
+        .search {
+            border-radius: 25px;
+            border: 1px solid gray;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            width: 50%;
+            margin: auto;
+            background-color: white;
+            height: 5vh;
+       
+            
+            mat-icon {
+                font-size: 1.8rem;
+            }
+
+            #searchbar {
+                border: none;
+                outline: none;
+                width: 100%;
+                background-color: transparent;
+                font-size: 1.8rem;
+                padding: 0 10px;
+                @include lato-font;
+            }
+        }
+    }

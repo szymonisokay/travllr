@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="card" *ngFor="let trip of trips">
+    <div class="card" *ngFor="let trip of trips | search: searchValue">
         <div class="img-container">
             <img [src]="trip.imgPath" [alt]="trip.name">
         </div>
         <div class="data-container">
             <p>{{ trip.name }}</p>
             <hr>
-            <p>Cena za osobę: {{ trip.price }} zł</p>
+            <p>Cena za osobę: {{ trip.price | filter: priceFrom: priceTo}} zł</p>
             <p>{{ trip.dateFrom }} - {{ trip.dateTo }}</p>
         </div>
         <div class="btn-container">

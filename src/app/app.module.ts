@@ -16,6 +16,14 @@ import { FiltersComponent } from './offers/filters/filters.component';
 import { ContentComponent } from './offers/content/content.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CartComponent } from './cart/cart.component';
+import { SearchbarComponent } from './offers/searchbar/searchbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TripDetailsComponent } from './offers/content/trip-details/trip-details.component';
+import { FormsModule } from '@angular/forms';
+import { SearchDataService } from './service/search-data.service';
+import { SearchPipe } from './search.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,16 +37,23 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     FiltersComponent,
     ContentComponent,
-    CartComponent
+    CartComponent,
+    SearchbarComponent,
+    FooterComponent,
+    TripDetailsComponent,
+    SearchPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SearchDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { SelectedTripService } from 'src/app/service/selected-trip.service';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { TripDataService } from 'src/app/service/trip-data.service';
 import { Trip } from 'src/app/shared/trip';
+import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { MatDialog } from '@angular/material/dialog';
+import { SearchDataService } from 'src/app/service/search-data.service';
+import { FilterDataService } from 'src/app/service/filter-data.service';
 
 @Component({
   selector: 'app-content',
@@ -11,14 +14,41 @@ import { Trip } from 'src/app/shared/trip';
 export class ContentComponent implements OnInit {
 
   trips: Trip[] = [];
+  searchValue: any;
+  price: any;
+  priceFrom: any;
+  priceTo: any;
 
-  constructor(private tripsData: TripDataService, private sTrip: SelectedTripService) { }
+  constructor(private tripsData: TripDataService,
+    private dialog: MatDialog,
+    private search: SearchDataService,
+    private filter: FilterDataService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.trips = this.tripsData.getTripData();
+    this.search.getSearchInfo().subscribe((value) => {
+      this.searchValue = value;
+    });
+
+    this.filter.getFilterInfo().subscribe((price: any) => {
+      this.priceFrom = price.priceFrom;
+      this.priceTo = price.priceTo
+    })
+
+
+
   }
 
   addToCart(trip: Trip) {
-    window.alert("Dodano do koszyka wycieczkę o nazwie " + trip.name + "!")
+
+
+    const dialogRef = this.dialog.open(TripDetailsComponent, {
+      disableClose: true,
+      width: '60vw',
+      height: '60vh',
+      data: trip,
+      panelClass: 'dialog-styling'
+    });
+
   }
 }

@@ -1,0 +1,22 @@
+<div *ngFor="let trip of selectedTrip">
+    <mat-icon aria-hidden="false" aria-label="close icon" (click)="closeDialog()">close</mat-icon>
+    <h2 mat-dialog-title>Informacje o wycieczce</h2>
+    <div class="content">
+        <div class="trip-info">
+            <p class="title">{{ trip.name }}</p>
+            <p class="desc">- {{ trip.desc }}</p>
+
+        </div>
+
+        <div class="btns">
+            <p>Liczba osób</p>
+            <p><input type="number" [(ngModel)]="peopleQty" min="1"></p>
+            <p>Data</p>
+            <p>{{ trip.dateFrom }} - {{ trip.dateTo }}</p>
+            <p>Cena całkowita</p>
+            <p>{{ trip.price * peopleQty }} zł</p>
+            <button mat-raised-button color="warn" class="buy" (click)="buy()">Zarezerwuj</button>
+        </div>
+
+    </div>
+</div>
